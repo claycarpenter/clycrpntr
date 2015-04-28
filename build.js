@@ -13,16 +13,27 @@ var browserSyncOptions = {
     files: ['src/**/*.md', 'templates/**/*.jade']
 };
 
-Metalsmith(__dirname)
+
+var cliArgs = Array.prototype.slice.call(process.argv, 2);
+var isWatchMode = cliArgs.some(function (arg) {
+    return arg === '--watch';
+});
+
+var metalsmith = Metalsmith(__dirname)
     .source('./src/')
     .destination('./output/')
     .use(markdown())
-    .use(jadeTemplater(jadeTemplaterOptions))
-    .use(browserSync(browserSyncOptions))
-    .build(function (err, files) {
-        console.log('Building.');
-    
-        if (err) throw err;
-    
-        console.log('Build successful. Output files:', Object.keys(files));
-    });
+    .use(jadeTemplater(jadeTemplaterOptions));
+
+if (isWatchMode) {
+    console.log('Enabling browser-sync.');
+    metalsmith.use(browserSync(browserSyncOptions));
+}
+ 
+metalsmith.build(function (err, files) {
+    console.log('Building.');
+
+    if (err) throw err;
+
+    console.log('Build successful. Output files:', Object.keys(files));
+});
