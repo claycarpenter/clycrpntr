@@ -21,6 +21,7 @@
     "metalsmith": "^1.6.0",
     "metalsmith-browser-sync": "^1.0.0",
     "metalsmith-jade-templater": "git://github.com/claycarpenter/metalsmith-jade-templater",
-    "metalsmith-markdown": "^0.2.1"
+    "metalsmith-markdown": "^0.2.1",
+    "yargs": "^3.8.0"
   }
 }
