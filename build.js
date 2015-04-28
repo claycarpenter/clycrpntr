@@ -8,11 +8,17 @@ var jadeTemplaterOptions = {
     fileDataKey: 'file'
 };
 
+var browserSyncOptions = {
+    server: 'output',
+    files: ['src/**/*.md', 'templates/**/*.jade']
+};
+
 Metalsmith(__dirname)
     .source('./src/')
     .destination('./output/')
     .use(markdown())
     .use(jadeTemplater(jadeTemplaterOptions))
+    .use(browserSync(browserSyncOptions))
     .build(function (err, files) {
         console.log('Building.');
     
