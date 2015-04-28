@@ -4,7 +4,8 @@ var Metalsmith = require('metalsmith'),
     browserSync = require('metalsmith-browser-sync');
 
 var jadeTemplaterOptions = {
-    baseTemplatesDir: __dirname + '/templates'
+    baseTemplatesDir: __dirname + '/templates',
+    fileDataKey: 'file'
 };
 
 Metalsmith(__dirname)
