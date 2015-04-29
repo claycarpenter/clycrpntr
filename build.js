@@ -13,7 +13,9 @@ var jadeTemplaterOptions = {
 
 var browserSyncOptions = {
     server: 'output',
-    files: ['src/**/*.md', 'templates/**/*.jade']
+    files: ['src/**/*.md', 'templates/**/*.jade'],
+    port: process.env.PORT,
+    directory: true
 };
 
 var metalsmith = Metalsmith(__dirname)
