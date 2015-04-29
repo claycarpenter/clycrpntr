@@ -18,7 +18,8 @@ var browserSyncOptions = {
 
 var metalsmith = Metalsmith(__dirname)
     .source('./src/')
-    .destination('./output/');
+    .destination('./output/')
+    .clean(false);  // Disable cleaning
 
 // Conditionally strip drafts out.
 if (!cliArgs.draft) {
