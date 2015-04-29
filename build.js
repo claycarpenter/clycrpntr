@@ -3,6 +3,7 @@ var Metalsmith = require('metalsmith'),
     jadeTemplater = require('metalsmith-jade-templater'),
     browserSync = require('metalsmith-browser-sync'),
     drafts = require('metalsmith-drafts'),
+    sass = require('metalsmith-sass'),
     cliArgs = require('yargs').argv;
 
 var jadeTemplaterOptions = {
@@ -28,7 +29,8 @@ if (!cliArgs.draft) {
 // The primary file processing pipeline.
 metalsmith
     .use(markdown())
-    .use(jadeTemplater(jadeTemplaterOptions));
+    .use(jadeTemplater(jadeTemplaterOptions))
+    .use(sass({outputStyle: 'expanded'}));
 
 if (cliArgs.watch) {
     console.log('Enabling browser-sync.');
