@@ -1,2 +1,45 @@
 
-// Declare site styles.
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:600,300);
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.5rem;
+}
+
+body {
+  padding: 30px;  
+}
+
+* {
+  /* Reset box sizing. */
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Raleway';
+  letter-spacing: 1px;
+}
+
+h1 {
+  line-height: 2.2rem;
+}
+
+h2 {
+  margin: 3rem 0 2rem 0;
+}
+
+.note {
+  font-style: italic;  
+  margin-bottom: 1.5rem;
+}
+
+.code {
+  font-family: monospace;
+  border: 1px solid #ddd;
+  border-radius: .3rem;
+  padding: 2px 6px;
+  font-style: normal;
+}
