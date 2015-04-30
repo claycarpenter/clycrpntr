@@ -19,7 +19,11 @@ var jadeTemplaterOptions = {
 
 var browserSyncOptions = {
     server: 'output',
-    files: ['src/**/*.md', 'templates/**/*.jade'],
+    files: [
+        'src/**/*.md', // Posts
+        'templates/**/*.jade',   // Jade templates
+        'src/**/*.scss' // Sass    
+    ],
     port: process.env.PORT,
     directory: true
 };
