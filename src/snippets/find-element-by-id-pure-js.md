@@ -2,6 +2,7 @@
 title: Finding an Element by ID in Pure JS
 draft: true
 tags: javascript
+template: /base.jade
 ---
 
 
