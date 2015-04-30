@@ -5,8 +5,12 @@ var Metalsmith = require('metalsmith'),
     jadeTemplater = require('metalsmith-jade-templater'),
     browserSync = require('metalsmith-browser-sync'),
     drafts = require('metalsmith-drafts'),
-    sass = require('metalsmith-sass'),
-    cliArgs = require('yargs').argv;
+    sass = require('metalsmith-sass');
+
+// Require arguments parser and set default values.
+var cliArgs = require('yargs')
+                .default({draft: false, watch: false, clean: false})
+                .argv;
 
 var jadeTemplaterOptions = {
     baseTemplatesDir: __dirname + '/templates',
@@ -23,7 +27,7 @@ var browserSyncOptions = {
 var metalsmith = Metalsmith(__dirname)
     .source('./src/')
     .destination('./output/')
-    .clean(Boolean(cliArgs.clean));  // Conditionally enable cleaning (default false)
+    .clean(cliArgs.clean);  // Conditionally enable cleaning (default false)
 
 // Conditionally strip drafts out.
 if (!cliArgs.draft) {
