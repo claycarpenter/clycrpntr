@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var Metalsmith = require('metalsmith'),
     markdown = require('metalsmith-markdown'),
     jadeTemplater = require('metalsmith-jade-templater'),
