@@ -28,27 +28,30 @@ var browserSyncOptions = {
     directory: true
 };
 
+// Define the Metalsmith file processing pipeline.
 var metalsmith = Metalsmith(__dirname)
     .source('./src/')
     .destination('./output/')
-    .clean(cliArgs.clean);  // Conditionally enable cleaning (default false)
-
-// Conditionally strip drafts out.
-if (!cliArgs.draft) {
-    console.log('Removing draft posts.');
-    metalsmith.use(drafts());
-}
-
-// The primary file processing pipeline.
-metalsmith
+    
+    // Conditionally enable cleaning (default false)
+    .clean(cliArgs.clean)
+    
+    // Conditionally process drafts.
+    .use(conditional(
+        isDraftModeTest,
+        drafts()
+    ))
+    
+    // Primary pipeline processes - Markdown, Jade, and Sass transpilers
     .use(markdown())
     .use(jadeTemplater(jadeTemplaterOptions))
-    .use(sass({outputStyle: 'expanded'}));
-
-if (cliArgs.watch) {
-    console.log('Enabling browser-sync.');
-    metalsmith.use(browserSync(browserSyncOptions));
-}
+    .use(sass({outputStyle: 'expanded'}))
+    
+    // Conditionally watch and serve with BrowserSync.
+    .use(conditional(   
+        isWatchModeTest,
+        browserSync(browserSyncOptions)
+    ));
  
 metalsmith.build(function (err, files) {
     console.log('Building.');
@@ -57,3 +60,23 @@ metalsmith.build(function (err, files) {
 
     console.log('Build successful. Output files:', Object.keys(files));
 });
+
+function isDraftModeTest () {
+    return !cliArgs.draft;
+}
+
+function isWatchModeTest () {
+    return cliArgs.watch;
+}
+
+function conditional (testFunc, plugin) {
+    return function (files, metalsmith, done) {
+        var execute = testFunc();
+        
+        if (execute) {
+            plugin(files, metalsmith, done);
+        } else {
+            done();
+        }
+    };
+}
