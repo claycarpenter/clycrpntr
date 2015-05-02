@@ -19,7 +19,11 @@ var defaultArgValues = {
     // Disable this action when running BrowserSync as BrowserSync currently
     // seems to get confused when a directory it's watching is removed and 
     // replaced.
-    clean: false
+    clean: false,
+    
+    // Default to either the environment port (for Cloud9 compatibility) or
+    // the browserSync default port of 3000.
+    port: process.env.PORT || 3000
 };
 
 // Require arguments parser and set default values.
@@ -39,7 +43,7 @@ var browserSyncOptions = {
         'templates/**/*.jade',   // Jade templates
         'src/**/*.scss' // Sass    
     ],
-    port: process.env.PORT,
+    port: cliArgs.port,
     directory: true
 };
 
