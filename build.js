@@ -43,6 +43,13 @@ var browserSyncOptions = {
     directory: true
 };
 
+var conditionalBrowserSync = singleExecute(
+    conditional(   
+        isWatchModeTest,
+        browserSync(browserSyncOptions)
+    )
+);
+
 // Define the Metalsmith file processing pipeline.
 var metalsmith = Metalsmith(__dirname)
     .source('./src/')
@@ -63,10 +70,8 @@ var metalsmith = Metalsmith(__dirname)
     .use(sass({outputStyle: 'expanded'}))
     
     // Conditionally watch and serve with BrowserSync.
-    .use(conditional(   
-        isWatchModeTest,
-        browserSync(browserSyncOptions)
-    ));
+    .use(conditionalBrowserSync);
+
  
 metalsmith.build(function (err, files) {
     console.log('Building.');
@@ -89,7 +94,22 @@ function conditional (testFunc, plugin) {
         var execute = testFunc();
         
         if (execute) {
+            //console.log('Executing plugin:', plugin);
             plugin(files, metalsmith, done);
+        } else {
+            done();
+        }
+    };
+}
+
+function singleExecute (plugin) {
+    var isExecutable = true;
+    
+    return function (files, metalsmith, done) {
+        if (isExecutable) {
+            plugin(files, metalsmith, done);
+            
+            isExecutable = false;
         } else {
             done();
         }
