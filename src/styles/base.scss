@@ -6,8 +6,8 @@
 
 html {
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  line-height: 1.5rem;
+  font-size: 17px;
+  line-height: 2rem;
 }
 
 body {
@@ -43,10 +43,15 @@ pre {
   font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   font-style: normal;
+    font-size: .9rem;
+    line-height: 1.5rem;
   
-  border: 1px solid #ddd;
+    $code-bg-color: hsla(360, 15%, 97%, 1);
+  border: 1px solid darken($code-bg-color, 20%);
   border-radius: .3rem;
-  padding: 2px 6px;
+  padding: 1px 4px;
+    
+    background-color: $code-bg-color;
 }
 
 pre code {
