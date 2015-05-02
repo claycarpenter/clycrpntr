@@ -7,9 +7,24 @@ var Metalsmith = require('metalsmith'),
     drafts = require('metalsmith-drafts'),
     sass = require('metalsmith-sass');
 
+// Define default values for CLI arguments.
+var defaultArgValues = {
+    // Whether to process draft posts.
+    draft: false, 
+    
+    // Whether to run browserSync server and watch for changes.
+    watch: false, 
+    
+    // Whether to clean the output directory before running the pipeline.
+    // Disable this action when running BrowserSync as BrowserSync currently
+    // seems to get confused when a directory it's watching is removed and 
+    // replaced.
+    clean: false
+};
+
 // Require arguments parser and set default values.
 var cliArgs = require('yargs')
-                .default({draft: false, watch: false, clean: false})
+                .default(defaultArgValues)
                 .argv;
 
 var jadeTemplaterOptions = {
