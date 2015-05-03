@@ -2,11 +2,10 @@
 title: Finding an Element by ID in Pure JS
 tags: javascript
 template: /base.jade
+category: snippet
 ---
 
-
 ## Finding an element using getElementById
-
 
 ```
 var element = document.getElementById('warning');
