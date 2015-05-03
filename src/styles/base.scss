@@ -32,6 +32,15 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  @media only screen and (min-width: 480px) {
+    // At the current font size, this produces a roughly 600px-wide content 
+    // box.
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+}
+
 h1,
 h2,
 h3,
