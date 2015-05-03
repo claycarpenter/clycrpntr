@@ -47,11 +47,9 @@ var browserSyncOptions = {
     directory: true
 };
 
-var conditionalBrowserSync = singleExecute(
-    conditional(   
+var conditionalBrowserSync = conditional(   
         isWatchModeTest,
         browserSync(browserSyncOptions)
-    )
 );
 
 // Define the Metalsmith file processing pipeline.
@@ -100,20 +98,6 @@ function conditional (testFunc, plugin) {
         if (execute) {
             //console.log('Executing plugin:', plugin);
             plugin(files, metalsmith, done);
-        } else {
-            done();
-        }
-    };
-}
-
-function singleExecute (plugin) {
-    var isExecutable = true;
-    
-    return function (files, metalsmith, done) {
-        if (isExecutable) {
-            plugin(files, metalsmith, done);
-            
-            isExecutable = false;
         } else {
             done();
         }
