@@ -5,9 +5,9 @@ template: /base.jade
 category: snippet
 ---
 
-Bare bones HTML5 documents. No shortcuts are employed. 
+These are a pair of bare bones HTML5 documents, meant to serve as quick starter templates. They're best suited for exercises that directly interact with stock browser components (DOM operations, XHR, localStorage, etc.). For a more full-featured template that includes fundamental libraries like jQuery and Modernizr, check out the popular [HTML5 Boilerplate](https://html5boilerplate.com/) project.
 
-All examples include:
+All example templates include:
 
 * Character encoding and language declarations
 * A mobile-friendly viewport configuration
