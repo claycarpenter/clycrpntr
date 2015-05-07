@@ -37,6 +37,8 @@ This template allows for inline styles and scripts. This is best suited for very
 </html>
 ```
 
+This template is available as a Gist: [inline-template.html](https://gist.github.com/claycarpenter/36dc8f0cff41d2e4cab8#file-inline-template-html)
+
 ## External Styles and Script
 
 This template references an external stylesheet and main app script.
@@ -57,3 +59,5 @@ This template references an external stylesheet and main app script.
     </body>
 </html>
 ```
+
+This template is available as a Gist: [external-template.html](https://gist.github.com/claycarpenter/36dc8f0cff41d2e4cab8#file-external-template-html)
