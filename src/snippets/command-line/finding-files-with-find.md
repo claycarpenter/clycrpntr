@@ -30,6 +30,56 @@ The filename pattern criteria can also take standard unix shell patterns, such a
 find . -name "*.md"
 ```
 
+### Target Directory vs File Name Pattern
+
+Don't confuse the target directory (the first argument to find) with the file name pattern (the pattern provided after the -name predicate).
+
+find will happily let you confuse those two. For instance, say you wanted to locate all HTML (.html) files in the output directory that has this structure:
+
+```
+output/
+├── about.html
+├── contact.html
+├── index.html
+├── portfolio
+│   ├── the-general-store.html
+│   └── the-tasty-bakery.html
+└── projects
+    ├── awesome-app.html
+    └── slick-site.html
+```
+
+You could try to issue this command:
+
+```
+find output/*.html
+```
+
+But this would only return the HTML files that are direct children of the output directory:
+
+```
+output/about.html
+output/contact.html
+output/index.html
+```
+
+Attempting to add a wildcard to walk down the directory tree will only match files that are in any child directory of output, but not any files that are direct children of output. For instance:
+
+```
+$ find output/*/*.html
+
+output/portfolio/the-general-store.html
+output/portfolio/the-tasty-bakery.html
+output/projects/awesome-app.html
+output/projects/slick-site.html
+```
+
+To find all HTML files within output, the correct syntax uses `output/` as the target directory, and search for files that have a filename matching the pattern "*.html". That filename match pattern is provided with the `-name` predicate. The full command would look like this:
+
+```
+find output/ -name *.html
+```
+
 ## Detailed Results List
 
 By default, find only prints the relative file path of any file that matches the search criteria. In order to print more detailed results, add the `-ls` flag.
