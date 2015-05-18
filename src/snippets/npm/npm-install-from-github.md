@@ -10,7 +10,7 @@ npm has a shortcut method for installing packages directly from a GitHub reposit
 The generic command syntax is:
 
 ```
-npm install [--save] [github username]/[repository name]
+npm install [--save] <github username>/<repository name>
 ```
 
 For example, I use this command to install my test Metalmsith Jade templating plugin:
