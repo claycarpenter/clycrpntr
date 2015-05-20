@@ -1,5 +1,5 @@
 ---
-title: Installing NPM Packages Directly from GitHub Repos
+title: Installing npm Packages Directly from GitHub Repos
 tags: npm, github
 template: /base.jade
 category: snippet

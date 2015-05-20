@@ -1,5 +1,5 @@
 ---
-title: Installing NPM Packages Directly from GitHub Gists
+title: Installing npm Packages Directly from GitHub Gists
 tags: npm, github, gist
 template: /base.jade
 category: snippet

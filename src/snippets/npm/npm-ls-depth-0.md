@@ -1,5 +1,5 @@
 ---
-title: Listing Only Top-Level NPM Dependencies
+title: Listing Only Top-Level npm Dependencies
 tags: npm, node.js
 template: /base.jade
 category: snippet
