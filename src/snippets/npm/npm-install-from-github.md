@@ -19,7 +19,15 @@ For example, I use this command to install my test Metalmsith Jade templating pl
 npm install --save claycarpenter/metalsmith-jade-templater
 ```
 
-Note that npm will keep a link to the GitHub repository as a dependency declaration in the package.json manifest. It will look something like this:
+Note that npm will keep a link to the GitHub repository as a dependency declaration in the package.json manifest. How that repository link is represented in the package.json depends on the npm version. In versions of npm including and after v2.8.0, the shorthand will be maintained as-is in the package.json dependency list:
+
+```
+  "dependencies": {
+    "metalsmith-jade-templater": "claycarpenter/metalsmith-jade-templater"
+  }
+```
+
+Prior to v2.8.0, the shorthand was expanded to a full git URL:
 
 ```
   "dependencies": {
