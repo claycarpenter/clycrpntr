@@ -5,6 +5,8 @@ template: /base.jade
 category: snippet
 ---
 
+**Note:** This functionality is only available in npm versions 2.8.0 and above. In order to install from a Gist in earlier versions of npm, you'll need to use a full Git URL as the package source argument (in place of the shorthand noted below).
+
 npm has a shortcut method for installing packages directly from a GitHub Gist. Installing from a Gist can be useful when you're trying to test simple Node modules that aren't mature enough yet to become full GitHub repositories.
 
 The generic command syntax is:
