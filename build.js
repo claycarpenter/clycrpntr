@@ -5,7 +5,8 @@ var Metalsmith = require('metalsmith'),
     jadeTemplater = require('metalsmith-jade-templater'),
     browserSync = require('metalsmith-browser-sync'),
     drafts = require('metalsmith-drafts'),
-    sass = require('metalsmith-sass');
+    sass = require('metalsmith-sass'),
+    yargs = require('yargs');
 
 // Define default values for CLI arguments.
 var defaultArgValues = {
@@ -27,9 +28,7 @@ var defaultArgValues = {
 };
 
 // Require arguments parser and set default values.
-var cliArgs = require('yargs')
-                .default(defaultArgValues)
-                .argv;
+var cliArgs = yargs.default(defaultArgValues).argv;
 
 var jadeTemplaterOptions = {
     baseTemplatesDir: __dirname + '/templates',
@@ -96,7 +95,6 @@ function conditional (testFunc, plugin) {
         var execute = testFunc();
         
         if (execute) {
-            //console.log('Executing plugin:', plugin);
             plugin(files, metalsmith, done);
         } else {
             done();
