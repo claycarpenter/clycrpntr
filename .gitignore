@@ -4,3 +4,5 @@ output
 # Ignore node modules
 node_modules
 
+# OSX metadata folders
+.DS_Store

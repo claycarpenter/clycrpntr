@@ -33,10 +33,10 @@ html {
 
 header {
   font-size: .8em;
-  
-  h1 {
+}
+
+header h1 {
     font-size: 1.5em;
-  }
 }
 ```
 
@@ -56,10 +56,10 @@ html {
 
 header {
   font-size: .8rem;
-  
-  h1 {
+}
+
+header h1 {
     font-size: 1.5rem;
-  }
 }
 ```
 
