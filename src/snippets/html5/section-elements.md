@@ -1,6 +1,6 @@
 ---
 title: The HTML5 section Element
-tags: css
+tags: html5
 template: /base.jade
 category: snippet
 ---
