@@ -5,7 +5,7 @@ template: /base.jade
 category: snippet
 ---
 
-`header` elements are designed to designate a section's introductory content. Introductory content includes content like titles, tables of contents, navigation, and document metadata like publish date and author byline. To which section a `header` provides introductory content for is determined by that `header`s' ancestry. `header` elements are related to their nearest sectioning ancestor (such as an `article` or `aside`) or sectioning root (e.g., `body`). 
+`header` elements are designed to designate a section's introductory content. Introductory content includes content like titles, tables of contents, navigation, and document metadata like publish date and author byline. To which section a `header` provides introductory content for is determined by that `header`s' ancestry. `header` elements are related to their nearest sectioning ancestor (such as an `article` or `aside`) or sectioning root (e.g., `body`). Because the `header` relates to the nearest sectioning parent, it can be used multiple times in a single document.
 
 The [HTML5 spec](http://www.w3.org/TR/html5/sections.html#the-header-element) definition of a `header` is broader than what many would consider for a header. They're not limited to a simple logo and site nav links, though those are valid examples of `header` content. Though the spec notes that the primary intention of the `header` element was to contain section heading text (in the form of `h1`-`h6` tags), 
 
