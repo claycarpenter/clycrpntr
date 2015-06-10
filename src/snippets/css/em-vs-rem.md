@@ -19,7 +19,7 @@ Take this very basic page as an example:
         <h1>SuperSite</h1>
         <p>The bestest site on the interwebs. Ever.</p>
     </header>
-</body
+</body>
 ```
 
 We're going to style the `h1` within the `header` to have a relatively large style, but we want any other text within the `header` to be smaller. The main site content should be in a larger font size to increase legibility, so we'll set the HTML to a static size of 18px.
