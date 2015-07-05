@@ -24,9 +24,9 @@ This template allows for inline styles and scripts. This is best suited for very
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        
-        <title></title>
-        
+
+        <title>Page Title</title>
+
         <style>
         </style>
     </head>
@@ -49,9 +49,9 @@ This template references an external stylesheet and main app script.
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        
-        <title></title>
-        
+
+        <title>Page Title</title>
+
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
