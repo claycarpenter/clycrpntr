@@ -1,5 +1,5 @@
 ---
-title: Basic Attributes in Jade
+title: Style Attributes in Jade
 tags: jade
 template: /base.jade
 category: snippet
