@@ -1,5 +1,5 @@
 ---
-title: Jade Template Variable Sharing
+title: Multiple Blocks In Jade Templates
 tags: jade
 template: /base.jade
 category: snippet
