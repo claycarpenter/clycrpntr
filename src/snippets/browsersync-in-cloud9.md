@@ -13,11 +13,11 @@ By default, BrowserSync will start on port 3000. Cloud9 requires that any server
 browser-sync start --server --port 8080
 ```
 
-The above command will start a BrowserSync server serving the files in the current working directory. 
+The above command will start a BrowserSync server serving the files in the current working directory.
 
 Cloud9 currently requires that servers start on port 8080, but that number could change in the future. Cloud9 also puts the expected port number in an environment variable, under the name `PORT`. You can insert that value into a command line argument using the dollar sign syntax.
 
-A more future-proof version of the preceeding command uses the PORT environment variable and looks like this:
+A more future-proof version of the preceding command uses the PORT environment variable and looks like this:
 
 ```
 browser-sync start --server --port $PORT
