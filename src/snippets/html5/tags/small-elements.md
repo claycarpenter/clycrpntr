@@ -18,7 +18,7 @@ Here is an example of a `small` tag being used to mark a licensing notice:
   <img src="de-blank-painting.jpg">
   <figcaption>
     An excellent example of De Blank's pointillist work.
-    <small>(reproduced here with artist's permission)
+    <small>(reproduced here with artist's permission)</small>
 </figure>
 ```
 
