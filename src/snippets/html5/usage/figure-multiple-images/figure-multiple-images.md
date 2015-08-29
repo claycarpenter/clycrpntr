@@ -19,10 +19,12 @@ Here, a pair of images are grouped and presented with a single caption:
 
 The result looks like this:
 
-<figure>
-  <img src="tiger-beetle-blue.jpg">
-  <img src="tiger-beetle-green.jpg">
-  <figcaption>A pair of Festive Tiger Beetles, showing off their iridescent shells.</figcaption>
-</figure>
+<div>
+  <figure>
+    <img src="tiger-beetle-blue.jpg">
+    <img src="tiger-beetle-green.jpg">
+    <figcaption>A pair of Festive Tiger Beetles, showing off their iridescent shells.</figcaption>
+  </figure>
+</div>
 
 Beetle images in this article are courtesy of [Bob Peterson](https://www.flickr.com/photos/pondapple/).
