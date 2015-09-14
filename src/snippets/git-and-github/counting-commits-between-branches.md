@@ -33,3 +33,9 @@ This technique also works using the `HEAD` pointer, so this command will tell yo
 ```
 git rev-list --count master..HEAD
 ```
+
+The command can also be abbreviated, as the `HEAD` seems to be assumed by git. The abbreviated form looks like this:
+
+```
+git rev-list --count master..
+```
