@@ -5,28 +5,31 @@ template: /base.jade
 category: snippet
 ---
 
-The `code` element represents a chunk of computer input or output. The most obvious example is of course code, but [the spec points out](http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element) that `code` more generally applies to "any other string that a computer would recognize".
+The `code` element represents a chunk of computer code. While [the spec point out](http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element) that `code` also generally applies to "any other string that a computer would recognize", there are better choices for representing computer input and output. Specifically, the `kbd` tag for user input and the `samp` tag for computer output both add more semantics to the computer-recognizable text than `code` alone provides.
 
-With that broad definition, `code` can accurately mark up content for a number of different types:
+Good candidates for markup with `code` tags include these:
 
-* HTML element references (as used in this snippet)
-* File names and/or file paths
-* Command line examples
-* Computer output (especially if that output is typically printed from a command line interface)
+* Code samples, both inline and as blocks.
+* HTML and XML element references (as used in this snippet).
+* File names and/or file paths.
 
-`code` is best used for inline code as well as single lines of code. Typically multiline code samples include indenting and other formatting, and such formatting isn't ensured by the `code` element. In order to maintian the snippet's text formatting, wrap the `code` element in a `pre` element.
+When used by itself, `code` is best suited for inline content as well as single lines of code. Multiline code samples typically include indenting and other formatting that should be preserved to maintain the readability of the content. Because such formatting isn't ensured by the `code` element alone, multiline samples should be wrapped in a combination of `pre` and `code` tags, such as `<pre><code>content</code></pre>`.
 
-Here is an example of using `code` to highlight an HTML element:
-
-```
-The <code>code</code> element represents a chunk of computer input or output.
-```
-
-Here's an example of installation instructions that include a line of CLI input:
+Here is an example of using `code` to highlight an HTML element inside of a sentence:
 
 ```
-<p>To install the Express module, use this command:</p>
-<p><code>npm install --save express</code></p>
+<p>
+  The <code>a</code>, or <i>anchor</i>, element represents a link to a different document.
+  ...
+</p>
 ```
 
-Note that `code` is only a semantic marker, not a stylistic one. It indicates that a certain fragment of content contains code, but doesn't necessarily apply any formatting. If no styles are provided, major modern browseres apply a default style that presents the content with a `monospace` font.
+Here, a multiline code sample is presented with formatting preseved with the help of the `pre` tag:
+
+```
+<pre><code>function sayHello (name) {
+  console.log('Hello, ' + name);
+}</code></pre>
+```
+
+Note that `code` is only a semantic marker, not a stylistic one. It indicates that a certain fragment of content contains code, but doesn't necessarily apply any formatting. Significantly, it doesn't provide any indication of what language the presented code is written in. To achieve language-specific styling, apply a CSS `class` attribute with a class that contains the appropriate styles.
