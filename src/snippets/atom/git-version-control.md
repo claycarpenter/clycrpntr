@@ -1,5 +1,5 @@
 ---
-title: Git Version Control Shortcurs in Atom
+title: Git Version Control Shortcuts in Atom
 tags: atom
 template: /base.jade
 category: snippet
