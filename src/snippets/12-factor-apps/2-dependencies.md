@@ -5,15 +5,10 @@ template: /base.jade
 category: snippet
 ---
 
-List your dependencies, not just what you're dependent on, but exactly what versions (or version ranges) will satisfy those dependencies.
-  Gemfiles accomplish this.
+Dependencies are the concern of aspect #2 of 12-Factor apps. Specifically, [explicitly listing and isolating](http://12factor.net/dependencies) all of the application's dependencies.
 
-Ideally, be able to use a package management system to investigate the dependency declaration list, and automatically install/manage those dependencies for you.
-  Examples: npm, gems, etc.
+The first part of this aspect, explicitly listing dependencies, involves both listing all dependencies your application has on outside components and services, as well as the specific version of those components, where possible. This includes libraries such as frameworks and shared libraries, but also such things as the version of that language you expect to use, as well as the versions of connector components such as database adapters or vendor SDKs. Real-world examples of this are seen in Ruby's Gemfiles or Node.js/npm's package.json.
 
-Every system should be running with the same software, as much as possible.
+Combining explicit dependency declaration with a package management system makes it easy to ensure that the application can be deployed on systems without any upfront configuration, while also keeping the dependency code outside of the application's source control repository. With such a setup, the application can be built by downloading the codebase and then running the package management system to satisfy any unmet dependencies.
 
-This includes everything from the components your app depends on to the VM version expected to run the code.
-
-Does this also extend to DB migrations? I think there's an argument for that.
-
+Explicit dependency declaration ensures that the app is deployed with the same components each time its deployed. All developers will have the same packages, as will staging, test, and production systems. This helps to reduce the chance of "but it works on my system" responses to bug reports.
