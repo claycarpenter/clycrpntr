@@ -5,15 +5,10 @@ template: /base.jade
 category: snippet
 ---
 
-Apps should be served by processes that are stateless.
+The sixth factor of 12-Factor apps is stateless processes. All 12-Factor apps should be served from an environment hosting one or more stateless processes. Stateless processes share nothing--they remember nothing from previous transactions. If any state needs to be maintained, that responsibility should be delegated to a collective memory, provided by a service such as a database or shared/distributed cache system.
 
-Any state that needs to be maintained should be held in a back service, such as a database.
+Conforming apps should never assume that the same server will serve two subsequent requests. The same goes for clients--they should not rely on talking to the same server during sequential requests.
 
-Keeping processes stateless keeps them lightweight and, most importantly, interchangeable. This brings advantages in scalability (increase or decrease number of servers easily) or in replacing faulty/errant servers. Both should be able to be done with a minimum of client/customer disruption (no disruption, if possible).
+Keeping processes stateless improves an app's resiliency by keeping the application and its operations lightweight and interchangeable. Stateless processes are all equally capable of serving incoming client requests, so adding new servers to meet increasing demand, or swapping out an existing, faulty server with a working backup has no negative effect on client transactions. This improves the load distribution capabilities of the app.
 
-Stateless processes also allow for better load distribution/load balancing.
-
-Conforming apps should never assume that the same server will serve two subsequent requests.
-
-For highly volatile session data that is expected to expire regularly with large amounts of churn, use shared key/value cache systems such as Redis, etc.
-
+Additionally, applications that are built within a stateless design constraint necessarily keep their operations small and atomic. This means that it's far less likely that a mid-operation failure will leave the system in a corrupted state.
