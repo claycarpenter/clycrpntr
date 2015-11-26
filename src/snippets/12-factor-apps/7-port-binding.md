@@ -5,17 +5,17 @@ template: /base.jade
 category: snippet
 ---
 
-Present a clean and clear interface to external clients
+Aspect #7 of 12-Factor apps is port binding. Port binding requires that 12-factor apps communicate with the external world over a single network address, without relying on any external services or components in order service requests. From the [twelve-factor app site](http://12factor.net/port-binding):
 
-The external interface port/address is not necessarily identical to the server processes' actual address/port. Allow for routing software to stand between the two.
+> The twelve-factor app is completely self-contained and does not rely on runtime injection of a webserver into the execution environment to create a web-facing service. The web app exports HTTP as a service by binding to a port, and listening to requests coming in on that port.
+
+Creating a self-contained app that exposes its service over a single network address provides two benefits:
+
+* Forces the app to provide a single service on a singe address. This provides a clear interface of any app clients. Architects can use this as a heuristic to identify when an app is trying to handle too many responsibilities. If app cannot provide a single service on a single endpoint, break app up into small services.
+* A self-contained app has no external dependencies in order to run, which makes for more reliable and repeatable deployments.
+
+The specific port that the app binds to does not necessarily need to align with the publicly exposed service interface:
 
 > In a local development environment, the developer visits a service URL like http://localhost:5000/ to access the service exported by their app. In deployment, a routing layer handles routing requests from a public-facing hostname to the port-bound web processes. [12-Factor: Port binding](http://12factor.net/port-binding)
 
-App should expose a single port through which its services can be accessed and consumed.
-
-The app should be built to be independent of the mechanism through which it is exposed to the world. Different routing systems, such as web servers or simple proxies, should be able to sit between the app and its external clients without altering the app.
-
-Use this single interface as the gateway for all external clients to interface with the app.
-
-Use this as a metric to identify when an app is trying to handle too many responsibilities. If app cannot provide a single service on a single endpoint, break app up into small services.
-
+This allows production services to provide routing services between the publicly exposed network address and the internal app address. That routing layer could provide extra functionality around the service, such as security, auditing, or failover.
