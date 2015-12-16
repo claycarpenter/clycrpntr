@@ -1,6 +1,6 @@
 ---
 title: Listing Available Rake Tasks
-tags: rails, rails-console
+tags: rails, rake
 template: /base.jade
 category: snippet
 ---
