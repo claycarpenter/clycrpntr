@@ -37,6 +37,15 @@ var letters = ['a','b','c'];
 letters.push('d')  // ['a','b','c','d'];
 ```
 
+You can also add an item to the end of an array by setting the value of the array element at the index equal to the array's length:
+
+```
+var letters = ['a','b','c'];
+letters[letters.length] = 'd'  // ['a','b','c','d'];
+```
+
+Thanks to [Kevin Chisholm](http://blog.kevinchisholm.com/javascript/two-ways-to-dynamically-append-an-element-to-a-javascript-array/) for reminding about that last method.
+
 ### Working from anywhere in the array
 
 The `splice` method can alter the contents of an array at any point.
