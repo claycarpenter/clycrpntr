@@ -86,14 +86,7 @@ let clearMap = new Map([
 ]);
 console.log([...clearMap.keys()]);   // ["one", "two", "three"]
 clearMap.clear();
-console.log([...clearMap.keys()]);   // []  let deleteMap = new Map([
-    ['one', 1],
-    ['two', 2],
-    ['three', 3]
-  ]);
-  console.log([...deleteMap.keys()]);   // ["one", "two", "three"]
-  deleteMap.delete('two');
-  console.log([...deleteMap.keys()]);   // ["one", "three"]
+console.log([...clearMap.keys()]);   // []  
 ```
 
 #### Key equality testing
