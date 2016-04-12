@@ -38,6 +38,19 @@ map.set(42, 'answer');
 console.log(map.get(42));   // "answer"
 ```
 
+#### Map sizing
+
+One of the advantages Map has over makeshift Object maps is the easy ability to determine the Map's size with the `size` property:
+
+```javascript
+let map = new Map([
+  ['one', 1],
+  ['two', 2],
+  ['three', 3]
+]);
+console.log(map.size);   // 3
+```
+
 #### Testing key presence
 
 Map contains a `#has(key)` test method that will return a boolean indicating whether the map contains the specified key:
