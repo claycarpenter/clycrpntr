@@ -37,6 +37,30 @@ let {a, b} = {a: 'one', b: 'two'};
 console.log(a, b);
 ```
 
+### Changing object property targets
+
+The simplest shorthand for object destructuring assigns values to variables with the same identifier as the object's key. In the same way that ES6 introduced the new object literal syntax `{x}` as shorthand for `{x:x}`, the shorthand object destructuring syntax of `{x}` is really short for `{x:x}`. So these two snippets are identical:
+
+```javascript
+// Implicit prop assignment
+let {a, b} = {a: 'one', b: 'two'};
+console.log(a, b);    // "one two"
+
+// Explicit prop assignment
+let {a: a, b: b} = {a: 'one', b: 'two'};
+console.log(a, b);    // "one two"
+```
+
+That syntax means "assign the value of the property found on the _left-hand_ side to the local variable with the name given on the _right-hand_ side". This idea should be more clear following this example:
+
+```javascript
+// Explicit prop assignment
+let {a: alpha, b: beta} = {a: 'one', b: 'two'};
+console.log(alpha, beta);    // "one two"
+```
+
+In that construction, `{a:alpha}` say "find the value of the key `a` in the target object, and assign that value to the variable named `alpha`".
+
 #### Deep references
 
 This also works for references of arbitrary depth. In this example, a nested array is accessed by using nested destructuring:
