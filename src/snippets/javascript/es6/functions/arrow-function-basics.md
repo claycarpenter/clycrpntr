@@ -76,3 +76,12 @@ Object literals, when used as arrow function expression bodies, can be confused 
 ```javascript
 const square = x => ({input: x, output: x * x})
 ```
+
+#### Parameter syntax
+
+The syntax for parameter definition in arrow functions is similar to their longhand counterparts: the parameter list is comma delimited and surrounded by parenthesis. The difference is in a single-parameter function, in which case the parenthesis are optional. This list shows the options for array function parameter declaration depending on how many parameters are declared:
+
+* () => {} - No parameter
+* (x) => {} - Single parameter (longhand form)
+* x => {} - Single parameter (shorthand form)
+* (x, y, z) => {} - Multiple parameters
